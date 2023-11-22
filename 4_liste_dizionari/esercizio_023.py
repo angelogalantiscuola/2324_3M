@@ -1,35 +1,40 @@
 """
 Handle the catalog of a museum.
 (not complete)
+(testing type hinting)
 """
+# pyright: reportGeneralTypeIssues=false
+
 import sys
-from typing import List, Dict, Union, Any
+from typing import Dict, Union, List
+
 
 OperaType = Dict[str, Union[str, int]]
-opera4: OperaType = {"titolo": "la gioconda", "artista": "leonardo", "anno": 1500}
+StanzaType = Dict[str, Union[str, int, List[OperaType]]]
+MuseoType = List[StanzaType]
 
-opera1: Dict[str, Any] = {"titolo": "la gioconda", "artista": "leonardo", "anno": 1500}
-opera2: Dict[str, Any] = {"titolo": "la nascita di venere", "artista": "botticelli", "anno": 1500}
-opera3: Dict[str, Any] = {"titolo": "la primavera", "artista": "botticelli", "anno": 1500}
-stanza1: Dict[str, Any] = {
+opera1: OperaType = {"titolo": "la gioconda", "artista": "leonardo", "anno": 1500}
+opera2: OperaType = {"titolo": "la nascita di venere", "artista": "botticelli", "anno": 1500}
+opera3: OperaType = {"titolo": "la primavera", "artista": "botticelli", "anno": 1500}
+stanza1: StanzaType = {
     "id": 1,
     "denominazione": "impressionisti",
     "metratura": 20,
     "opere": [opera1, opera2],
 }
-stanza2: Dict[str, Union[str, int, List[Any]]] = {
+stanza2: StanzaType = {
     "id": 2,
     "denominazione": "impressionisti",
     "metratura": 20,
     "opere": [opera3],
 }
-museo: List[Dict[str, Any]] = [stanza1, stanza2]
+museo: MuseoType = [stanza1, stanza2]
 
 # Consultare le opere presenti in una stanza
 # id_stanza_da_consultare = int(input("inserisci id della stanza"))
 ID_STANZA_DA_CONSULTARE = 1
 # trova la stanza con id pari a id_stanza_da_consultare
-stanza_da_consultare = {}
+stanza_da_consultare: StanzaType = {}
 for stanza in museo:
     if stanza["id"] == ID_STANZA_DA_CONSULTARE:
         stanza_da_consultare = stanza
@@ -38,7 +43,7 @@ if not stanza_da_consultare:
     sys.exit()
 print(f"Stanza da consultare: {stanza_da_consultare}")
 # stampa tutte le opere della stanza
-opere_della_stanza = stanza_da_consultare["opere"]
+opere_della_stanza: List[OperaType] = stanza_da_consultare["opere"]
 print(opere_della_stanza)
 print(type(opere_della_stanza))
 for opera in opere_della_stanza:
@@ -55,11 +60,12 @@ for stanza in museo:
 OPERA_DA_CERCARE = "la primavera"
 opera_presente = False
 for stanza in museo:
-    for opera in stanza["opere"]:  # type: ignore
-        if opera["titolo"] == OPERA_DA_CERCARE:  # type: ignore
+    opere_della_stanza = stanza["opere"]
+    for opera in opere_della_stanza:
+        if opera["titolo"] == OPERA_DA_CERCARE:
             opera_presente = True
             print("Opera trovata")
-            print(f"Titolo: {opera['titolo']}, artista: {opera['artista']}, anno: {opera['anno']}")  # type: ignore
+            print(f"Titolo: {opera['titolo']}, artista: {opera['artista']}, anno: {opera['anno']}")
             break
 if opera_presente == False:
     print("Opera non trovata")
@@ -73,10 +79,10 @@ OPERA_DA_AGGIUNGERE = {"titolo": OPERA_TITOLO, "artista": OPERA_ARTISTA, "anno":
 for stanza in museo:
     if stanza["id"] == ID_STANZA:
         # stanza trovata
-        stanza["opere"].append(OPERA_DA_AGGIUNGERE)  # type: ignore
+        stanza["opere"].append(OPERA_DA_AGGIUNGERE)
 
 
 # stampa tutte le opere della stanza
 opere_della_stanza = stanza1["opere"]
-for opera in opere_della_stanza:  # type: ignore
+for opera in opere_della_stanza:
     print(f"Titolo: {opera['titolo']}, artista: {opera['artista']}, anno: {opera['anno']}")

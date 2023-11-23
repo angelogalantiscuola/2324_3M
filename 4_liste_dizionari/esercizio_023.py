@@ -3,7 +3,6 @@ Handle the catalog of a museum.
 (not complete)
 (testing type hinting)
 """
-# pyright: reportGeneralTypeIssues=false
 
 import sys
 from typing import Dict, Union, List
@@ -58,16 +57,16 @@ for stanza in museo:
 # 5. Cercare le informazioni su un opera
 # cercare l'opera a partire dal suo nome in tutte le stanze e poi stampare le informazioni
 OPERA_DA_CERCARE = "la primavera"
-opera_presente = False
+opera_presente = False # pylint: disable=invalid-name
 for stanza in museo:
     opere_della_stanza = stanza["opere"]
     for opera in opere_della_stanza:
         if opera["titolo"] == OPERA_DA_CERCARE:
-            opera_presente = True
+            opera_presente = True # pylint: disable=invalid-name
             print("Opera trovata")
             print(f"Titolo: {opera['titolo']}, artista: {opera['artista']}, anno: {opera['anno']}")
             break
-if opera_presente == False:
+if opera_presente is False:
     print("Opera non trovata")
 
 # 2. Aggiungere un opera ad una stanza(titolo, artista, anno)

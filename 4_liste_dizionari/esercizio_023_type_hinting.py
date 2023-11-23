@@ -1,32 +1,39 @@
 """
 Handle the catalog of a museum.
 (not complete)
+(testing type hinting)
 """
 
 import sys
+from typing import Dict, Union, List
 
-opera1 = {"titolo": "la gioconda", "artista": "leonardo", "anno": 1500}
-opera2 = {"titolo": "la nascita di venere", "artista": "botticelli", "anno": 1500}
-opera3 = {"titolo": "la primavera", "artista": "botticelli", "anno": 1500}
-stanza1 = {
+
+OperaType = Dict[str, Union[str, int]]
+StanzaType = Dict[str, Union[str, int, List[OperaType]]]
+MuseoType = List[StanzaType]
+
+opera1: OperaType = {"titolo": "la gioconda", "artista": "leonardo", "anno": 1500}
+opera2: OperaType = {"titolo": "la nascita di venere", "artista": "botticelli", "anno": 1500}
+opera3: OperaType = {"titolo": "la primavera", "artista": "botticelli", "anno": 1500}
+stanza1: StanzaType = {
     "id": 1,
     "denominazione": "impressionisti",
     "metratura": 20,
     "opere": [opera1, opera2],
 }
-stanza2 = {
+stanza2: StanzaType = {
     "id": 2,
     "denominazione": "impressionisti",
     "metratura": 20,
     "opere": [opera3],
 }
-museo = [stanza1, stanza2]
+museo: MuseoType = [stanza1, stanza2]
 
 # Consultare le opere presenti in una stanza
 # id_stanza_da_consultare = int(input("inserisci id della stanza"))
 ID_STANZA_DA_CONSULTARE = 1
 # trova la stanza con id pari a id_stanza_da_consultare
-stanza_da_consultare = {}
+stanza_da_consultare: StanzaType = {}
 for stanza in museo:
     if stanza["id"] == ID_STANZA_DA_CONSULTARE:
         stanza_da_consultare = stanza
@@ -35,7 +42,7 @@ if not stanza_da_consultare:
     sys.exit()
 print(f"Stanza da consultare: {stanza_da_consultare}")
 # stampa tutte le opere della stanza
-opere_della_stanza = stanza_da_consultare["opere"]
+opere_della_stanza: List[OperaType] = stanza_da_consultare["opere"]
 print(opere_della_stanza)
 print(type(opere_della_stanza))
 for opera in opere_della_stanza:

@@ -4,13 +4,18 @@ liste di dizionari: imparare a combinare il precedente argomento (le liste) con 
 
 Realizzare un applicativo che permetta, mediante l'uso di dizionari e liste, la gestione del catalogo di un museo.
 In particolare, l'applicativo dovrà permettere di:
-1. Creare una nuova stanza (id, denominazione, metratura) 
-2. Aggiungere un opera ad una stanza(titolo, artista, anno)
-3. Consultare le opere presenti in una stanza
-4. Consultare le stanze presenti
-5. Cercare le informazioni su un opera
-6. Cancellare un opera
-7. Cancellare una stanza solo se vuota
+SCRIVERE
+    AGGIUNGERE
+    *. Creare una nuova stanza (id, denominazione, metratura) 
+    *. Aggiungere un opera ad una stanza(titolo, artista, anno)
+    RIMOUVERE
+    *. Cancellare un opera
+    *. Cancellare una stanza solo se vuota
+
+LEGGERE
+*. Consultare le opere presenti in una stanza
+*. Consultare le stanze presenti
+*. Cercare le informazioni su un opera
  
 NB 
 - Progettare la struttura dati a priori in modo da garantire le funzionalità richieste.

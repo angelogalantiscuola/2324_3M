@@ -17,4 +17,3 @@ Your task is to write a Python program that performs the following operations:
 5. Calculate the total value of the stocks by multiplying the price of each product by its quantity and summing up the results.
 
 Note: Make sure to handle the case where the user tries to remove a product that doesn't exist in the inventory.
-

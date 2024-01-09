@@ -80,6 +80,4 @@ def uscita(x1: float | None, x2: float | None) -> None:
 
 a1, b1, c1 = entrata()
 sol1, sol2 = elaborazione(a1, b1, c1)
-# uscita(x1, x2)
 uscita(sol1, sol2)
-print("test")

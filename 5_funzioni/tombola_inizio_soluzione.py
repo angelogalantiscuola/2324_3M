@@ -54,8 +54,10 @@ def genera_cartella(id: int) -> dict:
 
     # mettere a 0 4 numeri per ogni riga: soluzione migliore usando random.choice
     for riga in cartella_righe:
+        lista_indici = [i for i in range(9)]
         for _ in range(4):
-            indice = random.choice(range(9))
+            indice = random.choice(lista_indici)
+            lista_indici.remove(indice)
             riga[indice] = 0
 
     # # mettere a 0 4 numeri per ogni riga: soluzione migliore usando random.sample
@@ -96,7 +98,32 @@ es.
 (naturalmente per fare terno bisogna aver fatto anche ambo....)
 '''
 def controlla_cartella(cartella: dict, numeri_estratti:list[int]) -> list[bool]:
-    pass
+    numeri_estratti_in_cartella = []
+    numero_cinquine = 0
+    stato_cartella = [False, False, False, False, False]
+    for riga in cartella['righe']:
+        numeri_in_riga = 0
+        for numero in numeri_estratti:
+            if numero in riga:
+                numeri_in_riga += 1
+                numeri_estratti_in_cartella.append(numero)
+        print(f'numeri estratti in riga: {numeri_in_riga}')
+        if numeri_in_riga >= 2:
+            stato_cartella[0] = True
+        if numeri_in_riga >= 3:
+            stato_cartella[1] = True
+        if numeri_in_riga == 5:
+            stato_cartella[2] = True
+            numero_cinquine += 1
+    if numero_cinquine == 2:
+        stato_cartella[3] = True
+    if numero_cinquine == 3:
+        stato_cartella[4] = True
+    
+    print(numeri_estratti_in_cartella)
+    return stato_cartella
+    
+
 
 
 # logica di funzionamento
@@ -104,9 +131,9 @@ def controlla_cartella(cartella: dict, numeri_estratti:list[int]) -> list[bool]:
 # (es. una lista di cartelle, la lista dei numeri estratti, lo stato del gioco(ambo, terno,....))
 numeri_estratti = []
 cartelle = [genera_cartella(1), genera_cartella(2), genera_cartella(3)]
-numero_estratto = estrai_numero(numeri_estratti)
-print(numero_estratto)
+for _ in range(80):
+    numero_estratto = estrai_numero(numeri_estratti)
 print(numeri_estratti)
-numero_estratto = estrai_numero(numeri_estratti)
-print(numero_estratto)
-print(numeri_estratti)
+print(cartelle[0])
+stato_cartella = controlla_cartella(cartelle[0],numeri_estratti)
+print(f'Lo stato della cartella è: {stato_cartella}') # TODO improve output

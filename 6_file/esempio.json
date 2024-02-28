@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Matteo",
+        "surname": "Lazzaro",
+        "age": 62,
+        "hobbies": [
+            "cars",
+            "music",
+            "computers"
+        ]
+    },
+    {
+        "name": "Lorenzo",
+        "surname": "Panariello",
+        "age": 45,
+        "hobbies": [
+            "cars",
+            "music",
+            "computers"
+        ]
+    },
+    {
+        "name": "Giovanni",
+        "surname": "Di Santo",
+        "age": 45,
+        "hobbies": [
+            "cars",
+            "music",
+            "computers"
+        ]
+    }
+]

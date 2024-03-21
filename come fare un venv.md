@@ -3,7 +3,7 @@ ora vi spiego come fare semplicemente un ambiente virtuale in python
 step 1: clicca dopo essere in ssh (galo lo vuole) F1 poi scrivere "create environment"
       
     
-      step 2: scegliere "venv"
+step 2: scegliere "venv"
 
 
 step 3: dopo aver scelto venv nel terminal compare una scritta "python - (nome repository tuo) in GIALLO

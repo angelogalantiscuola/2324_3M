@@ -1,5 +1,14 @@
 # Exercise 34 - Plot a function with matplotlib and argparse
 
+## Prerequisites
+
+1. Create a repository
+2. Create a venv
+3. Activate the venv
+4. Install the required packages
+
+## Exercise
+
 In this exercise, you will use the `argparse` module to take command-line arguments and the `matplotlib` module to plot mathematical functions.
 
 You will create a script named `plot_functions.py` that accepts a number `n` and one or more types of functions as arguments. The types of functions can be 'linear', 'polinomial', or 'exponential'.

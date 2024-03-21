@@ -6,7 +6,9 @@ You will create a script named `plot_functions.py` that accepts a number `n` and
 
 The script should be able to be run like this:
 
+``` bash
 python plot_functions.py --linear --polinomial --exponential number
+```
 
 The functions to be plotted are as follows:
 

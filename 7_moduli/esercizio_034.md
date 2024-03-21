@@ -25,6 +25,8 @@ The functions to be plotted are as follows:
 - Polinomial: y = x^n
 - Exponential: y = n^x
 
+**Important: the plot should be saved in a file**
+
 For each function specified, your script should generate a plot using matplotlib. The x-values should be an list of values between 0 and 10 (inclusive). The y-values should be calculated based on the function type and the input number n.
 
 Remember to label the x-axis, y-axis, and provide a title for each plot. Display all the plots at the end.

@@ -1,0 +1,16 @@
+@startuml
+class Student {
+  -Name
+}
+
+class Course {
+  -Name
+}
+
+Student "n" - "n" Course
+(Student, Course) .. Enrollment
+
+class Enrollment {
+  -id_enrollment
+}
+@enduml

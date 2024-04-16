@@ -1,0 +1,18 @@
+[
+    {
+        "student": "Alice",
+        "vote": 5
+    },
+    {
+        "student": "Bob",
+        "vote": 3
+    },
+    {
+        "student": "Charlie",
+        "vote": 4
+    },
+    {
+        "student": "Dave",
+        "vote": 2
+    }
+]

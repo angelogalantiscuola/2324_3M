@@ -1,18 +1,18 @@
 [
     {
-        "student": "Alice",
+        "name": "Alice",
         "vote": 5
     },
     {
-        "student": "Bob",
+        "name": "Bob",
         "vote": 3
     },
     {
-        "student": "Charlie",
+        "name": "Charlie",
         "vote": 4
     },
     {
-        "student": "Dave",
+        "name": "Dave",
         "vote": 2
     }
 ]

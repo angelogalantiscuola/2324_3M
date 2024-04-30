@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flashcard</title>
+</head>
+<body>
+    <h1>{{ flashcard.question }}</h1>
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        <form method="POST">
+            <input type="text" name="answer" placeholder="Your answer">
+            <input type="submit" value="Submit">
+        </form>
+    {% endif %}
+</body>
+</html>

@@ -19,7 +19,6 @@ In this exercise, you will create a simple flashcard application using Flask. Th
     ]
     ```
 
-
 2. **Flashcard Page (`/flashcard/<id>`):** When the user visits the `/flashcard/<id>` URL, they should see a flashcard with the question. The flashcard should also include a form for the user to submit their answer.
 
     Example of flashcard.html:
@@ -45,7 +44,6 @@ If you finish the main part of the exercise and want an extra challenge, try add
 
 - **Random Flashcard:** Add a "Random" button that takes the user to a random flashcard `/flashcard/random`.
 
-
 ## Setup the environment
 
 1. **Create a new repository:**
@@ -63,7 +61,6 @@ If you finish the main part of the exercise and want an extra challenge, try add
 5. **Add a .gitignore file:**
     - Create a new file named `.gitignore` in your repository.
     - Add `.venv` and any other directories or files you want Git to ignore.
-
 
 ## Top-down approach
 
@@ -87,6 +84,7 @@ Remember, this is a top-down approach. You can start working on each step, test 
     - Write a function `check_answer(user_answer: str, correct_answer: str) -> bool:` to check if the user's answer matches the answer in the flashcard.
     - Call `check_answer` with the user's answer and the correct answer from the flashcard.
     - Print a message indicating whether the user was correct.
+
         ```python
         def prompt_for_id() -> int:
             ...
@@ -99,20 +97,25 @@ Remember, this is a top-down approach. You can start working on each step, test 
 
 5. **Convert the CLI interface to a Flask application:**
     - Start by importing the necessary modules and creating a new Flask application instance:
+
         ```python
         from flask import Flask, render_template, request
         app = Flask(__name__)
         ```
+
     - Replace the CLI prompts with Flask routes and views. Each route in a Flask application is associated with a Python function. When the route is accessed through a web browser, the associated function is executed.
         - For example, create a route for getting a flashcard by ID:
+
             ```python
             @app.route('/flashcard/<int:id>')
             def flashcard(id):
                 flashcard = get_flashcard_by_id(id)
                 return render_template('flashcard.html', flashcard=flashcard)
             ```
+
     - Create a HTML template file named 'flashcard.html' in a templates folder in your project directory. This file should contain the HTML structure of your flashcard and form, with placeholders for the flashcard data.
         - For example:
+
             ```html
             <h1>{{ flashcard.question }}</h1>
             <form action="/answer/{{ flashcard.id }}" method="post">
@@ -122,18 +125,19 @@ Remember, this is a top-down approach. You can start working on each step, test 
             ```
 
             > The HTML code provided is a template for displaying a flashcard and a form for submitting an answer. The template uses Flask's Jinja2 templating language.
-            > 
+            >
             > - `<h1>{{ flashcard.question }}</h1>`: This line displays the question of the flashcard. The `{{ flashcard.question }}` is a placeholder that gets replaced with the actual question when the template is rendered.
-            > 
+            >
             > - `<form action="/answer/{{ flashcard.id }}" method="post">`: This line starts a form. The `action` attribute specifies where to send the form data when the form is submitted. In this case, the form data is sent to the `/answer/{{ flashcard.id }}` URL. The `{{ flashcard.id }}` is a placeholder that gets replaced with the actual ID of the flashcard when the template is rendered. The `method="post"` attribute specifies that the HTTP POST method should be used when sending the form data.
-            > 
+            >
             > - `<input type="text" name="answer">`: This line creates a text input field where the user can enter their answer.
-            > 
+            >
             > - `<input type="submit" value="Submit">`: This line creates a submit button. When the user clicks this button, the form data is sent to the URL specified in the `action` attribute.
 
 6. **Handle form submissions:**
     - Add a route to handle POST requests from the form.
         - For example:
+
             ```python
             @app.route('/answer/<int:id>', methods=['POST'])
             def answer(id):
@@ -142,8 +146,10 @@ Remember, this is a top-down approach. You can start working on each step, test 
                 is_correct = check_answer(user_answer, flashcard['answer'])
                 return render_template('result.html', is_correct=is_correct)
             ```
+
     - Create a HTML template file named 'result.html' in the templates folder. This file should display a message based on whether the user's answer was correct.
         - For example:
+
             ```html
             {% if is_correct %}
                 <h1>Correct!</h1>
@@ -156,10 +162,12 @@ Remember, this is a top-down approach. You can start working on each step, test 
     - Write a function `get_random_flashcard() -> dict:` to get a random flashcard.
     - Add a route for `/flashcard/random` that uses this function.
         - For example:
+
             ```python
             @app.route('/flashcard/random')
             def random_flashcard():
                 flashcard = get_random_flashcard()
                 return render_template('flashcard.html', flashcard=flashcard)
             ```
+
     - You can use the same 'flashcard.html' template for this route.

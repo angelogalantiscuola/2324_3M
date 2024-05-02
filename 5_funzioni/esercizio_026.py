@@ -58,7 +58,7 @@ def elaborazione(a: int, b: int, c: int) -> list[float] | None:
     elif delta > 0:
         x1 = (-b + sqrt(delta)) / (2 * a)
         x2 = (-b - sqrt(delta)) / (2 * a)
-        return [x1, x2]
+        return x1, x2
 
 
 def uscita(x1: float | None, x2: float | None) -> None:
@@ -78,6 +78,7 @@ def uscita(x1: float | None, x2: float | None) -> None:
             print(x2)
 
 
-a1, b1, c1 = entrata()
-sol1, sol2 = elaborazione(a1, b1, c1)
-uscita(sol1, sol2)
+if __name__ == "__main__":
+    a1, b1, c1 = entrata()
+    sol1, sol2 = elaborazione(a1, b1, c1)
+    uscita(sol1, sol2)

@@ -1,7 +1,11 @@
+import os
 from flask import Flask, render_template
 import json
 
 app = Flask(__name__)
+
+# Get the directory of this Python file
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
 
 @app.route("/")
@@ -19,15 +23,20 @@ def hello_world():
 
 @app.route("/dati_grezzi/")
 def dati_grezzi():
-    with open("votes.json") as f:
+    # Construct the path to the JSON file
+    json_path = os.path.join(dir_path, "esercizio_036.json")
+    with open(json_path) as f:
         data = json.load(f)
     return data
 
+
 @app.route("/dati_formattati/")
 def dati_formattati():
-    with open("votes.json") as f:
+    # Construct the path to the JSON file
+    json_path = os.path.join(dir_path, "esercizio_036.json")
+    with open(json_path) as f:
         data = json.load(f)
-    result = ''
+    result = ""
     for student in data:
         result += f"{student['name']} ha preso {student['vote']}"
         result += "<br>"
@@ -36,7 +45,9 @@ def dati_formattati():
 
 @app.route("/table/")
 def table():
-    with open("votes.json") as f:
+    # Construct the path to the JSON file
+    json_path = os.path.join(dir_path, "esercizio_036.json")
+    with open(json_path) as f:
         data = json.load(f)
     return render_template("table.html", students=data)
 

@@ -1,7 +1,12 @@
-#3. Chiedere in input il raggio.
-#Visualizzare la circonferenza e l’area del cerchio
+"""
+The task is to ask the user for the radius of a circle,
+and then calculate and display the circumference and the area of the circle.
+"""
 
-x=int(input("inserisci il raggio"))
+radius = float(input("Enter the radius: "))
 
-circonferenza=print(2*x*3.14)
-area=print((x**2)*3.14)
+circumference = 2 * 3.14 * radius
+area = 3.14 * radius**2
+
+print(f"Circumference: {circumference:.2f}")
+print(f"Area: {area:.2f}")

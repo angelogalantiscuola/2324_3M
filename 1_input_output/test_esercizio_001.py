@@ -11,7 +11,7 @@ def test_calculate_average():
         # Replace sys.stdout with an instance of io.StringIO
         sys.stdout = io.StringIO()
 
-        import esercizio_001
+        import esercizio_001  # Import the module here
 
         # Get the output of the print function
         output = sys.stdout.getvalue()

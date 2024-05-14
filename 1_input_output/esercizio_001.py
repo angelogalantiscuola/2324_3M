@@ -1,6 +1,4 @@
 """
-Esercizio 1
-
 Dato i seguenti valori inseriti in input:
 - Nome di un alunno
 - Tre voti di una materia

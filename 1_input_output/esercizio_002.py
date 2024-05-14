@@ -1,23 +1,21 @@
-#2. Dati i seguenti costi giornaliero di un bagnino:
-#- ombrellone 12 euro
-#- lettini 5 euro
-#- sedie a sdraio di 6.50 euro
-#Chiedere in input il numero di giorni ed i servizi che vuole prenotare
-#Visualizzare la spesa complessiva
-giorni = input("inserire giorni di vacanza  ")
-giorni = int (giorni)
+"""
+Given the following daily costs for a beach service:
+- Umbrella: 12 euros
+- Sunbed: 5 euros
+- Deck chair: 6.50 euros
 
-ombrelloni = input("quanti ombrelloni?   ")#12euro
-ombrelloni = int (ombrelloni)
-c_ombrelloni = 12
+The task is to ask the user for the number of days and the services they want to book,
+and then calculate and display the total cost.
+"""
 
+days = int(input("Enter number of vacation days: "))
+umbrellas = int(input("How many umbrellas? "))
+sunbeds = int(input("How many sunbeds? "))
+deck_chairs = int(input("How many deck chairs? "))
 
-lettini = input("quanti lettini?  ")#5euro
-lettini = int (lettini)
-c_lettini = 5
+umbrella_price = 12
+sunbed_price = 5
+deck_chair_price = 6.50
 
-
-sedie = input("quante sedie?    ")#6.50euro
-sedie = int (sedie)
-c_sedie = 6.50
-print(giorni*((ombrelloni*c_ombrelloni)+(lettini*c_lettini)+(sedie*c_sedie)))
+total_cost = days * ((umbrellas * umbrella_price) + (sunbeds * sunbed_price) + (deck_chairs * deck_chair_price))
+print(total_cost)

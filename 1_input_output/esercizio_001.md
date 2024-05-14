@@ -1,4 +1,4 @@
-# Esercizio 1
+# Exercise 1
 
 Dato i seguenti valori inseriti in input:
 
